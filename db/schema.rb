@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117082549) do
+ActiveRecord::Schema.define(version: 20151117100259) do
 
   create_table "beacons", force: true do |t|
-    t.string   "UUID"
+    t.string   "uuid"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
