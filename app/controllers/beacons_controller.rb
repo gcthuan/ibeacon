@@ -1,19 +1,17 @@
 class BeaconsController < ApplicationController
   before_action :set_beacon, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
-
   def index
     if current_user.admin == true
       @beacons = Beacon.all
-      respond_with(@beacons)
+      render json: @beacons
     else
       redirect_to home_path
     end
   end
 
   def show
-    respond_with(@beacon)
+    render json: @beacon
   end
 
   def new

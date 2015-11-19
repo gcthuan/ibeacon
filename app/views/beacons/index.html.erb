@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Uuid</th>
+      <th>Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -11,7 +12,8 @@
   <tbody>
     <% @beacons.each do |beacon| %>
       <tr>
-        <td><%= beacon.UUID %></td>
+        <td><%= beacon.uuid %></td>
+        <td><%= beacon.description%></td>
         <td><%= link_to 'Show', beacon %></td>
         <td><%= link_to 'Edit', edit_beacon_path(beacon) %></td>
         <td><%= link_to 'Destroy', beacon, method: :delete, data: { confirm: 'Are you sure?' } %></td>

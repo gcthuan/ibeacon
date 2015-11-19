@@ -1,1 +1,1 @@
-json.extract! @beacon, :id, :UUID, :created_at, :updated_at
+json.extract! @beacon, :id, :uuid, :created_at, :updated_at
