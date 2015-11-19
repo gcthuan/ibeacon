@@ -2,11 +2,16 @@ class BeaconsController < ApplicationController
   before_action :set_beacon, only: [:show, :edit, :update, :destroy]
 
   def index
-    if current_user.admin == true
-      @beacons = Beacon.all
+    @beacons = Beacon.all
+    if params[:major].nil? || params[:minor].nil?
       render json: @beacons
     else
-      redirect_to home_path
+      @beacon = Beacon.find_by(major: params[:major], minor: params[:minor])
+      if @beacon.nil?
+        render json: "No beacon found!", status: 404
+      else
+        render json: @beacon.to_json(:only => [:name, :description])
+      end
     end
   end
 
@@ -36,6 +41,10 @@ class BeaconsController < ApplicationController
   def destroy
     @beacon.destroy
     respond_with(@beacon)
+  end
+
+  def find_beacon
+
   end
 
   private

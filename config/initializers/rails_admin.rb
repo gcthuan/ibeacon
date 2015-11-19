@@ -6,6 +6,17 @@ RailsAdmin.config do |config|
   config.authenticate_with do
     redirect_to main_app.home_path unless warden.user.admin == true
   end
+  config.model 'Beacon' do
+    list do
+      configure :updated_at do
+        hide
+      end
+      configure :created_at do
+        hide
+      end
+    end
+  end
+
   # config.current_user_method(&:current_user)
 
   ## == Cancan ==
